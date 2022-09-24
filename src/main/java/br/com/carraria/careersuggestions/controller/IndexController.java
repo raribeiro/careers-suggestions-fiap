@@ -10,7 +10,7 @@ public class IndexController {
 
     @GetMapping(value = "/")
     public String home(Model model){
-        model.addAttribute("teste", "Valor resultado.");
+        model.addAttribute("bit", "@bitruptura");
         return "home/index";
     }
 }
