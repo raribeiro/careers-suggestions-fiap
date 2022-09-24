@@ -55,6 +55,14 @@ public class JobController {
 
     }
 
-
+    @DeleteMapping(value = "/{jobId}")
+    public  ResponseEntity<Void> delete(@PathVariable long jobId){
+        if(!repository.existsById(jobId)){
+            return ResponseEntity.notFound().build();
+        }else{
+            repository.deleteById(jobId);
+            return ResponseEntity.noContent().build();
+        }
+    }
 
 }
