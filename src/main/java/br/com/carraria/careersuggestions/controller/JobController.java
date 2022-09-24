@@ -42,5 +42,19 @@ public class JobController {
         return repository.save(jobs);
     }
 
+    @PutMapping(value = "/{jobId}")
+    public ResponseEntity<Job> update(@Validated @PathVariable long jobId, @RequestBody Job jobs){
+
+        if(!repository.existsById(jobId)){
+            return ResponseEntity.notFound().build();
+        }else{
+            jobs.setId_(jobId);
+            jobs = repository.save(jobs);
+            return ResponseEntity.ok(jobs);
+        }
+
+    }
+
+
 
 }
