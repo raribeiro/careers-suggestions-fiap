@@ -4,12 +4,11 @@ package br.com.carraria.careersuggestions.controller;
 import br.com.carraria.careersuggestions.model.Job;
 import br.com.carraria.careersuggestions.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +25,7 @@ public class JobController {
         return repository.findAll();
     }
 
-    @GetMapping("/{jobId}")
+    @GetMapping(value = "/{jobId}")
     public ResponseEntity<Job> search(@PathVariable Long jobId){
         Optional<Job> jobs = repository.findById(jobId);
 
@@ -35,6 +34,12 @@ public class JobController {
         }else{
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Job add(@Validated @RequestBody Job jobs){
+        return repository.save(jobs);
     }
 
 

@@ -7,9 +7,11 @@ import javax.persistence.*;
 public class Job {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "sq_job")
     @Column(columnDefinition = "serial")
     private Long id_;
+
+
     private String job_name;
 
 
