@@ -13,9 +13,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>careers-suggestions</name>
 	<description>Suggestions for careers</description>
-	<properties>
-		<java.version>18</java.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
