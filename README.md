@@ -44,7 +44,7 @@ $ git clone <https://github.com/raribeiro/careers-suggestions-fiap.git>
 - Figma
 - DBDiagram
 - SQL
-- Oracle
+- PostgreSQL
 - Java/Spring Boot
 
 # Contribuidores
