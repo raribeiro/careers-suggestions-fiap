@@ -1,0 +1,4 @@
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:xxxxx
+spring.datasource.username=xxxxxx
+spring.datasource.password=xxxxxx
